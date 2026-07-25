@@ -60,13 +60,6 @@ public class UsuarioConverter {
     // ######
 
     public UsuarioDTO paraUsuarioDTO(Usuario usuarioDTO) {
-        /* Sem o builder. Com o builder fica mais limpo
-        Usuario usuario = new Usuario();
-        usuario.setNome(usuarioDTO.getNome());
-        usuario.setEmail(usuarioDTO.getEmail());
-        usuario.setSenha(usuarioDTO.getSenha());
-        return usuario;
-         */
         return  UsuarioDTO.builder()
                 .nome(usuarioDTO.getNome())
                 .email(usuarioDTO.getEmail())
