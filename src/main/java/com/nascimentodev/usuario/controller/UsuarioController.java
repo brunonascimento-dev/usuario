@@ -35,6 +35,18 @@ public class UsuarioController {
                 return "Bearer " + jwtUtil.generateToken(authentication.getName());
     }
 
+    @PostMapping("/endereco")
+    public ResponseEntity<EnderecoDTO> cadastrarEndereco(@RequestBody EnderecoDTO enderecoDTO,
+                                                            @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(usuarioService.cadastroEndereco(token, enderecoDTO));
+    }
+
+    @PostMapping("/telefone")
+    public ResponseEntity<TelefoneDTO> cadastrarTelefone(@RequestBody TelefoneDTO telefoneDTO,
+                                                            @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(usuarioService.cadastroTelefone(token, telefoneDTO));
+    }
+
     @GetMapping
     public ResponseEntity<UsuarioDTO> getUsuario(@RequestParam("email") String email) {
         return ResponseEntity.ok(usuarioService.buscarUsuarioPorEmail(email));
